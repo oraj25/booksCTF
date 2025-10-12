@@ -1,5 +1,5 @@
 # BookTryHackMe
-Test your web-hacking skills on a realistic, simulated bookstore website! Explore multiple pages that look and behave like a real app while hunting hidden flags—learn by finding and exploiting common web vulnerabilities, including:
+Test your web-hacking skills on a realistic, simulated bookstore website! Explore multiple pages that look and behave like a real app while hunting hidden flags-learn by finding and exploiting common web vulnerabilities, including:
 
 * SQL Injection (SQLi)
 * XML External Entity (XXE) simulation
@@ -17,7 +17,7 @@ Discover hidden flags by exploiting these vulnerabilities safely in a CTF enviro
 
 # BookStore CTF - Detailed Walkthrough (Exploits + Code)
 
-## Flag 001 — Default/Test Credentials (Welcome flag)
+## Flag 001 - Default/Test Credentials (Welcome flag)
 
 **Location:** `GET/POST /login` (Login page)
 **Why vulnerable:** Developer/test credentials are left in the page source (HTML comment / leftover).
