@@ -2,14 +2,14 @@
 
 Test your web hacking skills on a simulated bookstore website! Explore multiple pages with realistic-looking content while uncovering hidden vulnerabilities included are:
 
-1.IDOR -Insecure Direct Object Reference
-2.Stored XSS - Persistent Cross-Site Scripting (Reviews)
-3.Reflected XSS - Burp bypass
-4.Unrestricted File Upload (simulated webshell exec)
-5.Forced Browsing to Unprotected Admin/Static Flag
-6.Clickjacking (index/admin framing)
-7.SQLi Detection / Simulation (Detect classic SQLi pattern)
-8.Information disclosure / default credentials	
+##IDOR -Insecure Direct Object Reference
+##Stored XSS - Persistent Cross-Site Scripting (Reviews)
+##Reflected XSS - Burp bypass
+##Unrestricted File Upload (simulated webshell exec)
+##Forced Browsing to Unprotected Admin/Static Flag
+##Clickjacking (index/admin framing)
+##SQLi Detection / Simulation (Detect classic SQLi pattern)
+##Information disclosure / default credentials	
 
 
 Discover hidden flags by exploiting these vulnerabilities safely in a CTF environment.
