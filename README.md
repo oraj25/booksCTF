@@ -1,15 +1,14 @@
 # BookTryHackMe
+Test your web-hacking skills on a realistic, simulated bookstore website! Explore multiple pages that look and behave like a real app while hunting hidden flags—learn by finding and exploiting common web vulnerabilities, including:
 
-Test your web hacking skills on a simulated bookstore website! Explore multiple pages with realistic-looking content while uncovering hidden vulnerabilities included are:
-
-##IDOR -Insecure Direct Object Reference
-##Stored XSS - Persistent Cross-Site Scripting (Reviews)
-##Reflected XSS - Burp bypass
-##Unrestricted File Upload (simulated webshell exec)
-##Forced Browsing to Unprotected Admin/Static Flag
-##Clickjacking (index/admin framing)
-##SQLi Detection / Simulation (Detect classic SQLi pattern)
-##Information disclosure / default credentials	
+* SQL Injection (SQLi)
+* XML External Entity (XXE) simulation
+* Insecure Direct Object Reference (IDOR)
+* Reflected Cross-Site Scripting (XSS)
+* Stored (persistent) XSS
+* Unrestricted File Uploads (safe lab simulation)
+* Clickjacking (framing)
+* Forced browsing / exposed static files
 
 
 Discover hidden flags by exploiting these vulnerabilities safely in a CTF environment.
@@ -39,7 +38,7 @@ Welcome123
 
 ---
 
-## Flag 002 — IDOR (Hidden profile)
+## Flag 002 - IDOR (Hidden profile)
 
 **Location:** `GET /profile?id=<id>`
 **Why vulnerable:** Server returns profile based only on numeric `id` parameter without verifying requester ownership.
@@ -52,7 +51,7 @@ Welcome123
 
 ---
 
-## Flag 003 — Stored XSS (Review form)
+## Flag 003 - Stored XSS (Review form)
 
 **Location:** `POST /book?id=<n>` (review form on a book page)
 **Why vulnerable:** Review input is stored and later rendered unsanitized (persistent XSS).
@@ -75,7 +74,7 @@ or
 
 ---
 
-## Flag 004 — Reflected XSS (Search page, Burp bypass)
+## Flag 004 - Reflected XSS (Search page, Burp bypass)
 
 **Location:** `GET /search?query=...`
 **Why vulnerable:** The `query` param is reflected into the page without proper encoding; naive filters block `<script>` but can be bypassed via encoding/event attributes.
@@ -94,7 +93,7 @@ or
 
 ---
 
-## Flag 005 — Unrestricted File Upload (Simulated webshell exec)
+## Flag 005 - Unrestricted File Upload (Simulated webshell exec)
 
 **Location:** `POST /upload_profile` (uploads saved to `/static/uploads/`) and `/uploads/exec/<file>?cmd=...` (simulated exec)
 **Why vulnerable:** App allows uploads to web-served directory and provides a simulated exec endpoint that reads files. (In lab, execution is simulated for safety.)
@@ -112,7 +111,7 @@ http://<HOST>/uploads/exec/myshell.php?cmd=cat%20/opt/flag_shell.txt
 
 ---
 
-## Flag 006 — Clickjacking (Index framing)
+## Flag 006 - Clickjacking (Index framing)
 
 **Location:** Home page `/` (index)
 **Why vulnerable:** Page can be framed — missing `X-Frame-Options` / `Content-Security-Policy: frame-ancestors`. The app detects being framed and shows the flag.
@@ -133,7 +132,7 @@ http://<HOST>/uploads/exec/myshell.php?cmd=cat%20/opt/flag_shell.txt
 
 ---
 
-## Flag 007 — SQL Injection (Login simulation)
+## Flag 007 - SQL Injection (Login simulation)
 
 **Location:** `POST /login` (login form)
 **Why vulnerable:** Lab simulates unsafe string concatenation in SQL queries (demonstration branch detects classic SQLi).
@@ -151,7 +150,7 @@ http://<HOST>/uploads/exec/myshell.php?cmd=cat%20/opt/flag_shell.txt
 
 ---
 
-## Flag 009 — Forced Browsing / Sensitive static file
+## Flag 009 - Forced Browsing / Sensitive static file
 
 **Location:** `/static/admin/flag.txt` (or similar common admin static paths)
 **Why vulnerable:** Sensitive file(s) left in webroot and accessible without authentication.
